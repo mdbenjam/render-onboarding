@@ -9,7 +9,7 @@ var count = 0;
 
 setInterval(() => {
     count = count + 1;
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 10; i++) {
         console.log(`${(new Date()).toUTCString()} - Log count ${count}.${i}`)
     }
 }, 1)
