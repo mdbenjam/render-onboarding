@@ -5,6 +5,14 @@ const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
 
+var count = 0;
+
+setInterval(() => {
+    count = count + 1;
+    for (var i = 0; i < 10; i++) {
+        console.log(`${(new Date()).toUTCString()} - Log count ${count}.${i}`)
+    }
+}, 1)
 
 app.get('/', async (req, res) => {
     const data = {
