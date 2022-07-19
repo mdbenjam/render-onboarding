@@ -1,0 +1,11 @@
+services:
+  # A Docker web service
+  - type: web
+    name: webdis
+    env: node
+    repo: https://github.com/render-examples/webdis.git # optional
+    region: oregon # optional (defaults to oregon)
+    plan: starter # optional (defaults to starter)
+    branch: mark/blueprint # optional (defaults to master)
+    buildCommand: npm install
+    startCommand: npm start
