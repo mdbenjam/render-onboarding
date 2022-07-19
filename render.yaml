@@ -1,9 +1,9 @@
 services:
   # A Docker web service
   - type: web
-    name: webdis
+    name: onboarding
     env: node
-    repo: https://github.com/render-examples/webdis.git # optional
+    repo: https://github.com/mdbenjam/render-onboarding.git # optional
     region: oregon # optional (defaults to oregon)
     plan: starter # optional (defaults to starter)
     branch: mark/blueprint # optional (defaults to master)
