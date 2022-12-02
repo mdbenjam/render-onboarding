@@ -38,6 +38,6 @@ const getHitCount = async () => {
     }
 }
 
-app.listen(port, () => {
+app.listen(port, "127.0.0.1", () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
