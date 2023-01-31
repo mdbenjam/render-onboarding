@@ -1,3 +1,3 @@
 FROM kalilinux/kali-rolling
 
-RUN /bin/bash
+CMD ["/bin/bash"]
