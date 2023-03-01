@@ -1,12 +1,12 @@
 previewsEnabled: true
 services:
   - type: web
-    name: blueprint-test
+    name: test-preview-env
     env: node
     repo: https://github.com/mdbenjam/render-onboarding
     region: oregon
     plan: starter
-    branch: mark/blueprint
+    branch: mark/test-preview-env
     rootDir: ./
     buildCommand: npm install
     startCommand: npm start
