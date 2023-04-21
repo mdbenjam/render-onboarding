@@ -6,8 +6,8 @@ app.set('view engine', 'ejs');
 const port = 3000;
 
 setInterval(() => {
-    console.log(`Log spam :D`)
-}, 5000)
+    console.log(`Logging at ${Date.now()}`)
+}, 100)
 
 
 
