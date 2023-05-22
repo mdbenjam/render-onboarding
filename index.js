@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 const port = 3000;
 
 setInterval(() => {
-    console.log(`Log spam :D`)
+    console.log(`server: hello user=\"1.1\" foo=\"1-1\" bar=\"1f1\" bar=a123 level=ERROR`)
 }, 5000)
 
 
