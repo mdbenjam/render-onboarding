@@ -4,9 +4,11 @@ const redis = require('redis');
 const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
+var count = 0;
 
 setInterval(() => {
-    console.log(`Logging at ${Date.now()}`)
+    console.log(`Logging count ${count}`)
+    count++;
 }, 100)
 
 
