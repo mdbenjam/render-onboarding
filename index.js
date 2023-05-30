@@ -9,7 +9,7 @@ var count = 0;
 setInterval(() => {
     console.log(`Logging count ${count}`)
     count++;
-}, 100)
+}, 1000)
 
 
 
