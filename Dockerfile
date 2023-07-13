@@ -1,3 +1,3 @@
-FROM alpine
+FROM ubuntu
 
 RUN ['echo', 'Hello $TEST']
