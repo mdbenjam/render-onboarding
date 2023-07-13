@@ -1,5 +1,5 @@
 FROM ubuntu
 
-RUN echo "Build $TEST"
+RUN echo $TEST
 
 ENTRYPOINT echo "Hello $TEST"
