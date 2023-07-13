@@ -1,3 +1,3 @@
 FROM ubuntu
 
-RUN ['echo', 'Hello $TEST']
+ENTRYPOINT echo "Hello $TEST"
