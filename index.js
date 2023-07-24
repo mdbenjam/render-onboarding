@@ -37,7 +37,7 @@ const getHitCount = async () => {
         return "(Couldn't connect to datastore)";
     }
 }
-
-app.listen(port, () => {
+ 
+app.listen(port, 'localhost', () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
