@@ -1,5 +1,6 @@
-FROM ubuntu
-ARG TEST
-RUN echo $TEST
+FROM node
+COPY . .
 
-ENTRYPOINT echo "Hello $TEST"
+RUN npm install
+
+ENTRYPOINT npm start
