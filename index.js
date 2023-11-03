@@ -5,9 +5,16 @@ const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
 
+const numToLevel = {
+    0: "debug",
+    1: "info",
+    2: "warning",
+    3: "error",
+}
+
 setInterval(() => {
-    console.log(`Log spam :D`)
-}, 5000)
+    console.log(`${numToLevel[Math.floor(Math.random() * 4)]} this is a message}`)
+}, 2000)
 
 
 
