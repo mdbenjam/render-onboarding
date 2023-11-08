@@ -13,7 +13,7 @@ const numToLevel = {
 }
 
 setInterval(() => {
-    console.log(`${numToLevel[Math.floor(Math.random() * 4)]} this is a message}`)
+    console.log(`${numToLevel[Math.floor(Math.random() * 4)]} this is a message website https://render.com/my/path}`)
 }, 5)
 
 
