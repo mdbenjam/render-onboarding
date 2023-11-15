@@ -3,6 +3,7 @@ services:
   - type: web
     name: nginx
     env: node
+    runtime: image
     image:
       url: nginx:latest
     region: oregon # optional (defaults to oregon)
