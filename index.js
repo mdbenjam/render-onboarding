@@ -14,7 +14,7 @@ const numToLevel = {
 
 setInterval(() => {
     console.log(`${numToLevel[Math.floor(Math.random() * 4)]} this is a message}`)
-}, 2000)
+}, 20)
 
 
 
