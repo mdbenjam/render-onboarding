@@ -1,11 +1,11 @@
 services:
   # A Docker web service
   - type: web
-    name: nginx
+    name: onboarding
     env: node
-    runtime: image
-    image:
-      url: nginx:latest
+    repo: https://github.com/mdbenjam/render-onboarding.git # optional
     region: oregon # optional (defaults to oregon)
     plan: starter # optional (defaults to starter)
-    startCommand: "cat 'hello world'"
+    branch: mark/blueprint # optional (defaults to master)
+    buildCommand: npm install
+    startCommand: npm start
