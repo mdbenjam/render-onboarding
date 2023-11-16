@@ -1,7 +1,7 @@
 services:
   # A Docker web service
   - type: web
-    name: onboarding
+    name: nginx
     env: node
     repo: https://github.com/mdbenjam/render-onboarding.git # optional
     region: oregon # optional (defaults to oregon)
