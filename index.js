@@ -13,7 +13,7 @@ const numToLevel = {
 }
 
 setInterval(() => {
-    console.log(`${numToLevel[Math.floor(Math.random() * 4)]} this is a message}`)
+    console.log(`\\033[31;1;4m${numToLevel[Math.floor(Math.random() * 4)]}\\033[0m this is a message}`)
 }, 2000)
 
 
