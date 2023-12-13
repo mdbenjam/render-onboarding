@@ -13,7 +13,7 @@ const numToLevel = {
 }
 
 setInterval(() => {
-    console.log(`\x1B[31m${numToLevel[Math.floor(Math.random() * 4)]}\x1B[0m this is a message}`)
+    console.log(`\x1B[31m${numToLevel[Math.floor(Math.random() * 4)]}\x1B[0m this is a message requestID="1.2.3.4"}`)
 }, 2000)
 
 
