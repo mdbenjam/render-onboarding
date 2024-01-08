@@ -9,3 +9,8 @@ services:
     branch: mark/blueprint # optional (defaults to master)
     buildCommand: npm install
     startCommand: npm start
+    scaling:
+      minInstances: 1
+      maxInstances: 3
+      targetMemoryPercent: 60 # optional if targetCPUPercent is set
+      targetCPUPercent: 60 # optional if targetMemory is set
