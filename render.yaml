@@ -11,6 +11,6 @@ services:
     startCommand: npm start
     scaling:
       minInstances: 1
-      maxInstances: 3
+      maxInstances: 4
       targetMemoryPercent: 60 # optional if targetCPUPercent is set
       targetCPUPercent: 60 # optional if targetMemory is set
