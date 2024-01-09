@@ -5,7 +5,7 @@ services:
     env: node
     repo: https://github.com/mdbenjam/render-onboarding
     region: oregon
-    plan: starter
+    plan: standard
     branch: main
     rootDir: ./
     buildCommand: npm install
