@@ -13,4 +13,4 @@ services:
 databases:
   - name: elephant
     databaseName: mydb # optional (Render may add a suffix)
-    plan: "standard plus"
+    plan: "standard"
