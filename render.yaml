@@ -17,7 +17,5 @@ services:
         description: office
       - source: 198.51.100.1
         description: home
-    region: frankfurt # optional (defaults to oregon)
     plan: "starter plus" # optional (defaults to starter instance type)
     previewPlan: "starter plus" # optional (defaults to the value specified by 'plan')
-    maxmemoryPolicy: allkeys-lru # optional (defaults to allkeys-lru)
