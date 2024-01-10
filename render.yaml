@@ -17,5 +17,5 @@ services:
         description: office
       - source: 198.51.100.1
         description: home
-    plan: "starter plus" # optional (defaults to starter instance type)
-    previewPlan: "starter plus" # optional (defaults to the value specified by 'plan')
+    plan: "starter" # optional (defaults to starter instance type)
+    previewPlan: "starter" # optional (defaults to the value specified by 'plan')
