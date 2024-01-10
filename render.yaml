@@ -10,3 +10,8 @@ services:
     rootDir: ./
     buildCommand: npm install
     startCommand: npm start
+
+databases:
+  - name: elephant
+    databaseName: mydb # optional (Render may add a suffix)
+    plan: "starter plus"
