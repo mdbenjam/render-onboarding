@@ -9,8 +9,14 @@ services:
     rootDir: ./
     buildCommand: npm install
     startCommand: npm start
-
-databases:
-  - name: elephant
-    databaseName: mydb # optional (Render may add a suffix)
-    plan: "standard"
+  - type: redis
+    name: thunder
+    ipAllowList: # required - allow external connections from only these CIDR blocks
+      - source: 203.0.113.4/30
+        description: office
+      - source: 198.51.100.1
+        description: home
+    region: frankfurt # optional (defaults to oregon)
+    plan: "starter plus" # optional (defaults to starter instance type)
+    previewPlan: "starter plus" # optional (defaults to the value specified by 'plan')
+    maxmemoryPolicy: allkeys-lru # optional (defaults to allkeys-lru)
