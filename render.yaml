@@ -1,21 +1,12 @@
-previewsEnabled: true
 services:
   - type: web
     name: blueprint-test
     env: node
     repo: https://github.com/mdbenjam/render-onboarding
     region: oregon
-    plan: starter
+    plan: "pro ultra"
+    numInstances: 40
     branch: main
     rootDir: ./
     buildCommand: npm install
     startCommand: npm start
-  - type: redis
-    name: thunder
-    ipAllowList: # required - allow external connections from only these CIDR blocks
-      - source: 203.0.113.4/30
-        description: office
-      - source: 198.51.100.1
-        description: home
-    plan: "starter" # optional (defaults to starter instance type)
-    previewPlan: "starter" # optional (defaults to the value specified by 'plan')
