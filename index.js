@@ -45,6 +45,6 @@ app.listen(port, () => {
 
 const bigObject = {}
 
-for (let i = 0; i < 200000000; i++) {
+for (let i = 0; i < 100000000; i++) {
     bigObject[i] = i;
 }
