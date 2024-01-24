@@ -44,7 +44,8 @@ app.listen(port, () => {
 })
 
 setTimeout(() => {
-  for (let i = 0; i < 100; i++) {
-    const a = 1 + 1
+  var total = 0
+  for (let i = 0; i < 100000; i++) {
+    total += i
   }
 }, 1)
