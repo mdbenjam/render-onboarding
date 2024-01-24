@@ -6,6 +6,7 @@ app.set('view engine', 'ejs');
 const port = 3000;
 
 
+
 app.get('/', async (req, res) => {
     const data = {
         // Data provided by your application
@@ -41,3 +42,9 @@ const getHitCount = async () => {
 app.listen(port, () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
+
+setTimeout(() => {
+  for (let i = 0; i < 100; i++) {
+    const a = 1 + 1
+  }
+}, 1)
