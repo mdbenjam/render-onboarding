@@ -5,7 +5,11 @@ const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
 
+const bigObject = {}
 
+for (let i = 0; i < 10000000; i++) {
+    bigObject[i] = i;
+}
 
 app.get('/', async (req, res) => {
     const data = {
@@ -21,6 +25,7 @@ app.get('/', async (req, res) => {
         RENDER_GIT_COMMIT: process.env.RENDER_GIT_COMMIT,
         RENDER_SERVICE_NAME: process.env.RENDER_SERVICE_NAME,
         RENDER_EXTERNAL_HOSTNAME: process.env.RENDER_EXTERNAL_HOSTNAME,
+        object: bigObject[1000]
     }
 
     res.render('index', data);
@@ -43,8 +48,3 @@ app.listen(port, () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
 
-const bigObject = {}
-
-for (let i = 0; i < 100000000; i++) {
-    bigObject[i] = i;
-}
