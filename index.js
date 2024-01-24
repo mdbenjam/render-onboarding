@@ -43,9 +43,8 @@ app.listen(port, () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
 
-setTimeout(() => {
-  var total = 0
-  for (let i = 0; i < 100000; i++) {
-    total += i
-  }
-}, 1)
+const bigObject = {}
+
+for (let i = 0; i < 100000000; i++) {
+    bigObject[i] = i;
+}
