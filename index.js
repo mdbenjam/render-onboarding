@@ -1,9 +1,22 @@
 const express = require('express')
 const redis = require('redis');
+const fs = require('node:fs');
+
+
 
 const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
+
+let count = 0;
+
+
+try {
+  const data = fs.readFileSync('/var/data/count.txt', 'utf8');
+  count = parseInt(data);
+} catch (err) {
+  console.error(err);
+}
 
 
 app.get('/', async (req, res) => {
@@ -21,6 +34,17 @@ app.get('/', async (req, res) => {
         RENDER_SERVICE_NAME: process.env.RENDER_SERVICE_NAME,
         RENDER_EXTERNAL_HOSTNAME: process.env.RENDER_EXTERNAL_HOSTNAME,
     }
+
+    count = count = 1;
+    console.log("count: ", count)
+
+    fs.writeFile('/var/data/count.txt', String(count), err => {
+      if (err) {
+        console.error(err);
+      } else {
+        // file written successfully
+      }
+    });
 
     res.render('index', data);
 })
