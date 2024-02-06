@@ -35,7 +35,7 @@ app.get('/', async (req, res) => {
         RENDER_EXTERNAL_HOSTNAME: process.env.RENDER_EXTERNAL_HOSTNAME,
     }
 
-    count = count = 1;
+    count = count + 1;
     console.log("count: ", count)
 
     fs.writeFile('/var/data/count.txt', String(count), err => {
