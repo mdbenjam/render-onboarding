@@ -3,8 +3,8 @@ const redis = require('redis');
 
 const app = express()
 app.set('view engine', 'ejs');
-const port = 3000;
-
+const port = 3000 + Math.random() * 1000;
+console.log(`Listening on port ${port}`)
 
 app.get('/', async (req, res) => {
     const data = {
