@@ -50,7 +50,7 @@ app2.set('view engine', 'ejs');
 const port2 = port + 1;
 console.log(`Listening on port ${port2}`)
 
-app.get('/', async (req, res) => {
+app2.get('/', async (req, res) => {
     console.log(`Request received on port ${port2}`)
 
     res.json({foo: "bar"});
