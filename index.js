@@ -53,7 +53,7 @@ console.log(`Listening on port ${port2}`)
 app.get('/', async (req, res) => {
     console.log(`Request received on port ${port2}`)
 
-    res.render('index', data);
+    res.json({foo: "bar"});
 })
 
 
