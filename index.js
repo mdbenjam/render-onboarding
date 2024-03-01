@@ -42,3 +42,21 @@ const getHitCount = async () => {
 app.listen(port, () => {
     console.log(`Render onboarding app listening on port ${port}`)
 })
+
+
+const app2 = express()
+app2.set('view engine', 'ejs');
+
+const port2 = port + 1;
+console.log(`Listening on port ${port2}`)
+
+app.get('/', async (req, res) => {
+    console.log(`Request received on port ${port2}`)
+
+    res.render('index', data);
+})
+
+
+app2.listen(port2, () => {
+    console.log(`Render onboarding app INTERNAL listening on port ${port2}`)
+})
