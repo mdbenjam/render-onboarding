@@ -8,7 +8,7 @@ const port = 3000;
 
 setTimeout(() => {
     console.log("Exiting after 120 seconds")
-    process.exit()
+    process.exit(1)
 }, 120_000);
 
 app.get('/', async (req, res) => {
