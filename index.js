@@ -6,6 +6,11 @@ app.set('view engine', 'ejs');
 const port = 3000;
 
 
+setTimeout(() => {
+    console.log("Exiting after 120 seconds")
+    process.exit()
+}, 120_000);
+
 app.get('/', async (req, res) => {
     const data = {
         // Data provided by your application
