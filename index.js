@@ -79,3 +79,9 @@ setTimeout(() => {
       console.log(`Render onboarding app INTERNAL listening on port ${port3}`)
   })
 }, 45000);
+
+setTimeout(() => {
+  const a = []
+  for (let i = 0; i < 9000000000; i++)
+      a.push(i)
+}, 15000);
