@@ -7,11 +7,13 @@ app.set('view engine', 'ejs');
 const port = process.env.INTERNAL_PORT || 3000;
 console.log(`Listening on port ${port}`)
 
+const name = process.env.NAME || "Mark"
+
 app.get('/', async (req, res) => {
     const data = {
         // Data provided by your application
         // Make your changes here!
-        author: "Mark 7",
+        author: name,
         hits: await getHitCount(),
 
         // Data that your configure via Render: how to connect to managed datastores
