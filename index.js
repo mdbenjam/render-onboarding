@@ -61,15 +61,15 @@ app2.listen(port2, () => {
     console.log(`Render onboarding app INTERNAL listening on port ${port2}`)
 })
 
-var app3
+var srv
 var count = 0;
 
 setInterval(() => {
-  if (app3) {
-    app3.close()
+  if (srv) {
+    srv.close()
   }
 
-  app3 = express()
+  const app3 = express()
 
   app3.set('view engine', 'ejs');
   
@@ -83,7 +83,7 @@ setInterval(() => {
   })
   
   
-  app3.listen(port3, () => {
+  srv = app3.listen(port3, () => {
       console.log(`Render onboarding app INTERNAL listening on port ${port3}`)
   })
 }, 5000);
