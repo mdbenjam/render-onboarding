@@ -56,6 +56,8 @@ const getHitCount = async () => {
     }
 }
 
-app.listen(port, results["en0"][0], () => {
-    console.log(`Render onboarding app listening on address ${results["en0"][0]} port ${port}`)
+console.log("results", results)
+
+app.listen(port, results["eth0"][0], () => {
+    console.log(`Render onboarding app listening on address ${results["eth0"][0]} port ${port}`)
 })
