@@ -1,5 +1,6 @@
 const express = require('express')
-var net = require('net');
+
+const {Server} = require('net')
 
 const app = express()
 app.set('view engine', 'ejs');
@@ -31,9 +32,21 @@ app.listen(port, () => {
 })
 
 
-var server = net.createServer(function(socket) {
-	socket.write('Echo server\r\n');
-	socket.pipe(socket);
-});
+const server = new Server(socket=> {
+  console.log('client connected')
 
-server.listen(1337, '0.0.0.0');
+  // Attach listeners for the socket
+  socket.on('data', message => {
+    console.log('message')
+
+    // Write back to the client
+    socket.write('world')     
+  })
+
+  // Send the client a message to disconnect from the server after a minute
+  setTimeout(() => socket.write('disconnect'), 60000)
+
+  socket.on('end', () => console.log('client disconnected'))
+})
+
+server.listen(1337, '0.0.0.0', () => console.log('listening'))
