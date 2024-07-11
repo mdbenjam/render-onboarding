@@ -1,5 +1,4 @@
 const express = require('express')
-const redis = require('redis');
 var net = require('net');
 
 const app = express()
@@ -13,7 +12,7 @@ app.get('/', async (req, res) => {
         // Data provided by your application
         // Make your changes here!
         author: "Mark 7",
-        hits: await getHitCount(),
+        hits: 0,
 
         // Data that your configure via Render: how to connect to managed datastores
         REDIS_URL: process.env.REDIS_URL,
@@ -26,19 +25,6 @@ app.get('/', async (req, res) => {
 
     res.render('index', data);
 })
-
-
-
-const getHitCount = async () => {
-    try {
-        const client = await redis.createClient({ url: process.env.REDIS_URL, retry_strategy: (o) => { return undefined } });
-        client.on('error', (err) => { console.log(err); throw new Error(err) });
-        await client.connect();
-        return client.incr("hits")
-    } catch (e) {
-        return "(Couldn't connect to datastore)";
-    }
-}
 
 app.listen(port, () => {
     console.log(`Render onboarding app listening on port ${port}`)
