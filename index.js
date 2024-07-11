@@ -1,5 +1,6 @@
 const express = require('express')
 const redis = require('redis');
+var net = require('net');
 
 const app = express()
 app.set('view engine', 'ejs');
@@ -44,38 +45,9 @@ app.listen(port, () => {
 })
 
 
-const app2 = express()
-app2.set('view engine', 'ejs');
+var server = net.createServer(function(socket) {
+	socket.write('Echo server\r\n');
+	socket.pipe(socket);
+});
 
-const port2 = port + 1;
-console.log(`Listening on port ${port2}`)
-
-app2.get('/', async (req, res) => {
-    console.log(`Request received on port ${port2}`)
-
-    res.json({foo: "bar"});
-})
-
-
-app2.listen(port2, () => {
-    console.log(`Render onboarding app INTERNAL listening on port ${port2}`)
-})
-
-setTimeout(() => {
-  const app3 = express()
-  app3.set('view engine', 'ejs');
-  
-  const port3 = port + 2;
-  console.log(`Listening on port ${port3}`)
-  
-  app3.get('/', async (req, res) => {
-      console.log(`Request received on port ${port3}`)
-  
-      res.json({foo: "bar"});
-  })
-  
-  
-  app3.listen(port3, () => {
-      console.log(`Render onboarding app INTERNAL listening on port ${port3}`)
-  })
-}, 45000);
+server.listen(1337, '127.0.0.1');
