@@ -44,7 +44,7 @@ app.listen(port, () => {
 })
 
 
-for (var i = 0; i < 1000; i++) {
+for (var i = 1; i <= 1000; i++) {
   const app2 = express()
   app2.set('view engine', 'ejs');
   
