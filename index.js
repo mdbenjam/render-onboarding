@@ -44,19 +44,21 @@ app.listen(port, () => {
 })
 
 
-const app2 = express()
-app2.set('view engine', 'ejs');
-
-const port2 = 10000;
-console.log(`Listening on port ${port2}`)
-
-app2.get('/', async (req, res) => {
-    console.log(`Request received on port ${port2}`)
-
-    res.json({foo: "bar"});
-})
-
-
-app2.listen(port2, () => {
-    console.log(`Render onboarding app INTERNAL listening on port ${port2}`)
-})
+for (var i = 0; i < 1000; i++) {
+  const app2 = express()
+  app2.set('view engine', 'ejs');
+  
+  const port2 = 10000+i;
+  console.log(`Listening on port ${port2}`)
+  
+  app2.get('/', async (req, res) => {
+      console.log(`Request received on port ${port2}`)
+  
+      res.json({foo: "bar"});
+  })
+  
+  
+  app2.listen(port2, () => {
+      console.log(`Render onboarding app INTERNAL listening on port ${port2}`)
+  })
+}
