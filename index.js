@@ -3,7 +3,7 @@ var port = 44044;
 
 // creating a client socket
 const client = dgram.createSocket('udp4')
-client.connect(1025, '127.0.0.1')
+client.connect(53, '1.1.1.1')
 
 //buffer msg
 const data = Buffer.from('#01\r')
