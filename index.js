@@ -1,5 +1,17 @@
 var dgram = require('dgram');
 var port = 44044;
+var dns = require('dns');
+
+dns.promises.setServers([
+  "1.1.1.1",
+]);
+
+dns.promises.resolve('www.google.com').then((address) => {
+    console.log('Address: ', address);
+}).catch((err) => {
+    console.log('Error: ', err);
+});
+
 
 socket = dgram.createSocket('udp4');
 
