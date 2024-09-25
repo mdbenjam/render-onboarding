@@ -9,14 +9,14 @@ client.connect(1025, '127.0.0.1')
 const data = Buffer.from('#01\r')
 
 //sending msg
-client.send(data, error => {
-  if (error) {
-      console.log(error)
-      client.close()
-  } else {
-      console.log('Data sent !!!')
-  }
-})
+// client.send(data, error => {
+//   if (error) {
+//       console.log(error)
+//       client.close()
+//   } else {
+//       console.log('Data sent !!!')
+//   }
+// })
 
 
 socket = dgram.createSocket('udp4');
