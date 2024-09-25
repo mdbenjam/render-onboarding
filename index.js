@@ -6,11 +6,13 @@ dns.promises.setServers([
   "1.1.1.1",
 ]);
 
-dns.promises.resolve('www.google.com').then((address) => {
-    console.log('Address: ', address);
-}).catch((err) => {
-    console.log('Error: ', err);
-});
+setInterval(() => {
+    dns.promises.resolve('www.google.com').then((address) => {
+        console.log('Address: ', address);
+    }).catch((err) => {
+        console.log('Error: ', err);
+    });
+}, 1000);
 
 
 socket = dgram.createSocket('udp4');
