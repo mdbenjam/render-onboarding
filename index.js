@@ -7,6 +7,7 @@ app.set('view engine', 'ejs');
 
 const port = process.env.INTERNAL_PORT || 3000;
 console.log(`Listening on port ${port}`)
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 app.get('/', async (req, res) => {
     const data = {
@@ -23,7 +24,8 @@ app.get('/', async (req, res) => {
         RENDER_SERVICE_NAME: process.env.RENDER_SERVICE_NAME,
         RENDER_EXTERNAL_HOSTNAME: process.env.RENDER_EXTERNAL_HOSTNAME,
     }
-
+    
+    await sleep(1200)
     res.render('index', data);
 })
 
