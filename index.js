@@ -11,7 +11,7 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/header', async (req, res) => {
-  res.set('Content-Type', 'text/plain');
+  res.set('foo', 'bar');
   res.send("")
 })
 
