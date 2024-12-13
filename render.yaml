@@ -5,7 +5,7 @@ services:
     runtime: node
     repo: https://github.com/mdbenjam/render-onboarding
     region: oregon
-    plan: standard
+    plan: starter
     branch: main
     rootDir: ./
     buildCommand: node --version;npm install
@@ -14,7 +14,7 @@ services:
       - key: NODE_VERSION
         value: "18.7.0"
   - type: web # A Python web service named django-app running on a free instance
-    plan: standard
+    plan: starter
     region: oregon
     name: test python version
     runtime: python
@@ -25,7 +25,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.13.1"
   - type: web
-    plan: standard
+    plan: starter
     region: oregon
     name: test ruby version
     runtime: ruby
@@ -36,7 +36,7 @@ services:
       - key: RUBY_VERSION
         value: "2.5.6"
   - type: web
-    plan: standard
+    plan: starter
     region: oregon
     name: test elixir version
     runtime: elixir
@@ -45,4 +45,4 @@ services:
     startCommand: "elixir --version"
     envVars:
       - key: ELIXIR_VERSION
-        value: "18.1.2"
+        value: "1.17.2"
