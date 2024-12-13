@@ -18,7 +18,7 @@ services:
     region: oregon
     name: test python version
     runtime: python
-    repo: https://github.com/render-examples/django.git
+    repo: https://github.com/mdbenjam/render-onboarding
     buildCommand: "python --version"
     startCommand: "python --version"
     envVars:
@@ -29,7 +29,7 @@ services:
     region: oregon
     name: test ruby version
     runtime: ruby
-    repo: https://github.com/render-examples/django.git
+    repo: https://github.com/mdbenjam/render-onboarding
     branch: mark/language-versions
     buildCommand: "ruby --version"
     startCommand: "ruby --version"
@@ -41,7 +41,7 @@ services:
     region: oregon
     name: test elixir version
     runtime: elixir
-    repo: https://github.com/render-examples/django.git
+    repo: https://github.com/mdbenjam/render-onboarding
     buildCommand: "elixir --version"
     startCommand: "elixir --version"
     envVars:
