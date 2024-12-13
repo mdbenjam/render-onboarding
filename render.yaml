@@ -1,12 +1,48 @@
 previewsEnabled: true
 services:
   - type: web
-    name: blueprint-test
-    env: node
+    name: test node version
+    runtime: node
     repo: https://github.com/mdbenjam/render-onboarding
     region: oregon
     plan: standard
     branch: main
     rootDir: ./
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: node --version;npm install
+    startCommand: node --version;npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "18.7.0"
+  - type: web # A Python web service named django-app running on a free instance
+    plan: standard
+    region: oregon
+    name: test python version
+    runtime: python
+    repo: https://github.com/render-examples/django.git
+    buildCommand: "python --version"
+    startCommand: "python --version"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.1"
+  - type: web
+    plan: standard
+    region: oregon
+    name: test ruby version
+    runtime: ruby
+    repo: https://github.com/render-examples/django.git
+    buildCommand: "ruby --version"
+    startCommand: "ruby --version"
+    envVars:
+      - key: RUBY_VERSION
+        value: "2.5.6"
+  - type: web
+    plan: standard
+    region: oregon
+    name: test elixir version
+    runtime: elixir
+    repo: https://github.com/render-examples/django.git
+    buildCommand: "elixir --version"
+    startCommand: "elixir --version"
+    envVars:
+      - key: ELIXIR_VERSION
+        value: "18.1.2"
