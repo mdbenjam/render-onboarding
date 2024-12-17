@@ -12,7 +12,7 @@ services:
     startCommand: node --version;npm start
     envVars:
       - key: NODE_VERSION
-        value: "18.7.0"
+        value: "37.7.0"
   - type: web # A Python web service named django-app running on a free instance
     plan: starter
     region: oregon
@@ -23,7 +23,7 @@ services:
     startCommand: "python --version"
     envVars:
       - key: PYTHON_VERSION
-        value: "3.13.1"
+        value: "5.13.1"
   - type: web
     plan: starter
     region: oregon
@@ -35,7 +35,7 @@ services:
     startCommand: "ruby --version"
     envVars:
       - key: RUBY_VERSION
-        value: "2.5.6"
+        value: "5.5.6"
   - type: web
     plan: starter
     region: oregon
@@ -46,4 +46,4 @@ services:
     startCommand: "elixir --version"
     envVars:
       - key: ELIXIR_VERSION
-        value: "1.17.2"
+        value: "5.17.2"
