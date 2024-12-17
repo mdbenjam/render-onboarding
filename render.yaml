@@ -47,3 +47,5 @@ services:
     envVars:
       - key: ELIXIR_VERSION
         value: "1.17.2"
+      - key: ERLANG_VERSION
+        value: "27.2"
