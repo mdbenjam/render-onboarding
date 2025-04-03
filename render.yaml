@@ -6,5 +6,5 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: "2"
-        value: invalid-env-var-value
+      - key: foo
+        value: " bar"
