@@ -6,5 +6,5 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: foo
+      - key: "."
         value: " bar"
