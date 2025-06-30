@@ -8,4 +8,4 @@ services:
     envVars:
       - key: "."
         value: " bar"
-      - fromGroup: test-group
+      - fromGroup: prod-group
