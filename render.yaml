@@ -6,6 +6,4 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: "."
-        value: " bar"
       - fromGroup: prod-group
