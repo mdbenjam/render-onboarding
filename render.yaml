@@ -13,6 +13,6 @@ services:
   - type: cron
     name: test schedule
     runtime: python
-    schedule: '20 * * * *'
+    schedule: '25 * * * *'
     buildCommand: 'echo "Building..."'
     startCommand: 'echo "Starting..."'
