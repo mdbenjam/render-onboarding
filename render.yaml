@@ -1,12 +1,18 @@
 previewsEnabled: true
 services:
-  - type: web
-    name: blueprint-test
-    env: node
-    repo: https://github.com/mdbenjam/render-onboarding
-    region: oregon
-    plan: standard
-    branch: main
-    rootDir: ./
-    buildCommand: npm install
-    startCommand: npm start
+  # - type: web
+  #   name: blueprint-test
+  #   env: node
+  #   repo: https://github.com/mdbenjam/render-onboarding
+  #   region: oregon
+  #   plan: standard
+  #   branch: main
+  #   rootDir: ./
+  #   buildCommand: npm install
+  #   startCommand: npm start
+  - type: cron
+    name: test schedule
+    runtime: python
+    schedule: '5 * * * *'
+    buildCommand: 'echo "Building..."'
+    startCommand: 'echo "Starting..."'
