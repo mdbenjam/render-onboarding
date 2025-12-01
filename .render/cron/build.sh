@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Building the cron job v3"
+echo "Building the cron job v4"
 
 npm install
