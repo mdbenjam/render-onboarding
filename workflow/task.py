@@ -56,6 +56,13 @@ async def fan_out(n: int) -> list[int]:
     results = await asyncio.gather(*squares)
     return results
 
+@task
+async def sleep(seconds: int) -> None:
+    """Sleep for a number of seconds."""
+    logger.info(f"Sleeping for {seconds} seconds")
+    await asyncio.sleep(seconds)
+    return seconds
+
 
 if __name__ == "__main__":
     try:
