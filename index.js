@@ -10,7 +10,7 @@ app.get('/', async (req, res) => {
     const data = {
         // Data provided by your application
         // Make your changes here!
-        author: "Mark 4",
+        author: "Mark 5",
         hits: await getHitCount(),
 
         // Data that your configure via Render: how to connect to managed datastores
