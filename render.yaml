@@ -10,7 +10,7 @@ services:
     buildCommand: npm install
     startCommand: npm start
     scaling:
-      minInstances: 3
-      maxInstances: 4
+      minInstances: 8
+      maxInstances: 9
       targetMemoryPercent: 60 # optional if targetCPUPercent is set
       targetCPUPercent: 60 # optional if targetMemory is set
