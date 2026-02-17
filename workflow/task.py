@@ -46,7 +46,7 @@ def add_numbers(a: int, b: int) -> int:
 def greet(name: str) -> str:
     """Greet someone."""
     logger.info(f"Greeting {name}")
-    return f"Hello, {name}!"
+    return f"Hello world, {name}!"
 
 
 @task
