@@ -1,12 +1,16 @@
-services:
-  # A Docker web service
-  - type: web
-    name: onboarding
-    runtime: node
-    repo: https://github.com/mdbenjam/render-onboarding.git # optional
-    region: oregon # optional (defaults to oregon)
-    plan: starter # optional (defaults to starter)
-    branch: mark/blueprint # optional (defaults to master)
-    buildCommand: npm install
-    startCommand: npm start
-    preDeployCommand: npm test
+projects:
+  - name: my-project
+    environments:
+      - name: production
+      services:
+        # A Docker web service
+        - type: web
+          name: onboarding
+          runtime: node
+          repo: https://github.com/mdbenjam/render-onboarding.git # optional
+          region: oregon # optional (defaults to oregon)
+          plan: starter # optional (defaults to starter)
+          branch: mark/blueprint # optional (defaults to master)
+          buildCommand: npm install
+          startCommand: npm start
+          preDeployCommand: npm test 2
