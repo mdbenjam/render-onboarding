@@ -9,4 +9,4 @@ services:
     branch: mark/blueprint # optional (defaults to master)
     buildCommand: npm install
     startCommand: npm start
-    maxShutdownDelaySeconds: 600
+    preDeployCommand: npm test
