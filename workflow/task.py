@@ -64,9 +64,9 @@ async def sleep(seconds: int) -> None:
     return seconds
 
 
-if __name__ == "__main__":
-    try:
-        start()
-    except Exception as e:
-        logger.error(f"Error starting Render Tasks example: {e}")
-        raise
+# if __name__ == "__main__":
+#     try:
+#         start()
+#     except Exception as e:
+#         logger.error(f"Error starting Render Tasks example: {e}")
+#         raise
