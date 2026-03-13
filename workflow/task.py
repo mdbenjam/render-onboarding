@@ -69,9 +69,10 @@ async def test_fail_parent_task() -> None:
     """start subtasks then fail"""
     await square(4)
 
-    fan_out(5)
+    sleep(10)
+    sleep(20)
 
-    await asyncio.sleep(10)
+    await asyncio.sleep(5)
 
     raise Exception("Test failure")
 
