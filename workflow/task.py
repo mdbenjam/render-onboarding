@@ -71,7 +71,7 @@ async def test_fail_parent_task() -> None:
 
     fan_out(5)
 
-    time.sleep(10)
+    await asyncio.sleep(10)
 
     raise Exception("Test failure")
 
