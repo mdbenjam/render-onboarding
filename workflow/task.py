@@ -70,6 +70,8 @@ async def test_fail_parent_task() -> None:
 
     fan_out(5)
 
+    sleep(10)
+
     raise Exception("Test failure")
 
 if __name__ == "__main__":
