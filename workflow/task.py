@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+import time
 
 from render_sdk.workflows import Options, Retry, start, task
 
@@ -70,7 +71,7 @@ async def test_fail_parent_task() -> None:
 
     fan_out(5)
 
-    sleep(10)
+    time.sleep(10)
 
     raise Exception("Test failure")
 
