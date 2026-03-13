@@ -63,6 +63,14 @@ async def sleep(seconds: int) -> None:
     await asyncio.sleep(seconds)
     return seconds
 
+@task
+async def test_fail_parent_task() -> None:
+    """start subtasks then fail"""
+    await square(4)
+
+    fan_out(5)
+
+    raise Exception("Test failure")
 
 if __name__ == "__main__":
     try:
