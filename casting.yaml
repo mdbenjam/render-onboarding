@@ -1,0 +1,9 @@
+apiVersion: v1alpha1
+metadata:
+  name: signoz
+spec:
+  deployment:
+    # blueprint generates Render's YAML format
+    flavor: blueprint
+    # render specifies Render.com
+    platform: render
