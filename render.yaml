@@ -73,8 +73,7 @@ services:
   plan: standard
   runtime: image
   type: web
-- dockerCommand: /bin/sh -c "/signoz-otel-collector migrate bootstrap --clickhouse-dsn=$CLICKHOUSE_DSN && /signoz-otel-collector migrate sync up --clickhouse-dsn=$CLICKHOUSE_DSN && /signoz-otel-collector migrate async up --clickhouse-dsn=$CLICKHOUSE_DSN"
-  dockerContext: configs/schema-migrator
+- dockerContext: configs/schema-migrator
   dockerfilePath: configs/schema-migrator/Dockerfile
   envVars:
   - key: CLICKHOUSE_DSN
