@@ -51,6 +51,8 @@ services:
   runtime: docker
   type: pserv
 - envVars:
+  - key: PORT
+    value: "8080"
   - key: SIGNOZ_SQLSTORE_PROVIDER
     value: postgres
   - key: SIGNOZ_TELEMETRYSTORE_CLICKHOUSE_DSN
