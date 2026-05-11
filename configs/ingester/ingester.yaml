@@ -81,6 +81,9 @@ processors:
     metrics_exporter: signozclickhousemetrics
     metrics_flush_interval: 60s
 receivers:
+  httplogreceiver/json:
+    endpoint: 0.0.0.0:8082
+    source: json
   otlp:
     protocols:
       grpc:
@@ -101,6 +104,7 @@ service:
       - batch
       receivers:
       - otlp
+      - httplogreceiver/json
     metrics:
       exporters:
       - signozclickhousemetrics
