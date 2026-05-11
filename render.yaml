@@ -73,10 +73,9 @@ services:
   plan: standard
   runtime: image
   type: web
-- dockerCommand: |
-    /bin/sh -c /signoz-otel-collector migrate bootstrap --clickhouse-dsn=$CLICKHOUSE_DSN
-      && /signoz-otel-collector migrate sync up --clickhouse-dsn=$CLICKHOUSE_DSN
-      && /signoz-otel-collector migrate async up --clickhouse-dsn=$CLICKHOUSE_DSN
+- dockerCommand: /bin/sh -c "/signoz-otel-collector migrate bootstrap --clickhouse-dsn=$CLICKHOUSE_DSN && /signoz-otel-collector migrate sync up --clickhouse-dsn=$CLICKHOUSE_DSN && /signoz-otel-collector migrate async up --clickhouse-dsn=$CLICKHOUSE_DSN"
+  dockerContext: configs/schema-migrator
+  dockerfilePath: configs/schema-migrator/Dockerfile
   envVars:
   - key: CLICKHOUSE_DSN
     value: tcp://signoz-telemetrystore-clickhouse-0-0:9000
@@ -87,11 +86,9 @@ services:
       property: host
       type: pserv
     key: DEPENDENCY_LINK_0
-  image:
-    url: signoz/signoz-otel-collector:latest
   name: signoz-schema-migrator
   plan: standard
   preDeployCommand: /signoz-otel-collector migrate ready --clickhouse-dsn=${CLICKHOUSE_DSN}
     --timeout 60s
-  runtime: image
+  runtime: docker
   type: worker
