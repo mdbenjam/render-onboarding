@@ -1,6 +1,5 @@
 FROM signoz/signoz-otel-collector:latest
 
-COPY migrate.sh /migrate.sh
-RUN chmod +x /migrate.sh
+COPY --chmod=755 migrate.sh /migrate.sh
 
 ENTRYPOINT ["/migrate.sh"]
