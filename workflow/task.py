@@ -42,6 +42,10 @@ def add_numbers(a: int, b: int) -> int:
     logger.info(f"Adding {a} + {b}")
     return a + b
 
+@task
+def log(a: str):
+    logger.info(a)
+
 
 @task
 def greet(name: str) -> str:
