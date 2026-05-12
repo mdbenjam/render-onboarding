@@ -44,7 +44,7 @@ def add_numbers(a: int, b: int) -> int:
 
 @task
 def log(a: str):
-    logger.info(a)
+    print(a)
 
 
 @task
