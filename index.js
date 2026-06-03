@@ -1,9 +1,31 @@
 const express = require('express')
 const redis = require('redis');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
 
 const app = express()
 app.set('view engine', 'ejs');
 const port = 3000;
+
+// Fill the temp disk with ~20GB of data on startup.
+const fillTmpDisk = () => {
+    const targetBytes = 20 * 1024 * 1024 * 1024;
+    const chunkBytes = 64 * 1024 * 1024;
+    const chunk = Buffer.alloc(chunkBytes, 0);
+    const filePath = path.join(os.tmpdir(), 'render-onboarding-fill.bin');
+    const fd = fs.openSync(filePath, 'w');
+    let written = 0;
+    while (written < targetBytes) {
+        fs.writeSync(fd, chunk);
+        written += chunkBytes;
+    }
+    fs.fsyncSync(fd);
+    fs.closeSync(fd);
+    console.log(`Wrote ${written} bytes to ${filePath}`);
+};
+
+fillTmpDisk();
 
 
 app.get('/', async (req, res) => {
