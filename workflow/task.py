@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+import sys
 import time
 
 from render_sdk.workflows import Options, Retry, start, task
@@ -31,6 +32,10 @@ async def add_squares(a: int, b: int) -> int:
     logger.info(f"Square result: {result2}")
 
     return result1 + result2
+
+@task
+async def exit_early() -> int:
+    sys.exit(0)
 
 
 @task(
