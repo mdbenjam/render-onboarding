@@ -13,77 +13,77 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-@task
-def square(a: int) -> int:
-    """Square a number."""
-    logger.info(f"Computing square of {a}")
-    return a * a
+# @task
+# def square(a: int) -> int:
+#     """Square a number."""
+#     logger.info(f"Computing square of {a}")
+#     return a * a
 
 
-@task
-async def add_squares(a: int, b: int) -> int:
-    """Add the squares of two numbers."""
-    logger.info(f"Computing add_squares: {a}, {b}")
+# @task
+# async def add_squares(a: int, b: int) -> int:
+#     """Add the squares of two numbers."""
+#     logger.info(f"Computing add_squares: {a}, {b}")
 
-    # Execute subtasks
-    result1 = await square(a)
-    logger.info(f"Square result: {result1}")
-    result2 = await square(b)
-    logger.info(f"Square result: {result2}")
+#     # Execute subtasks
+#     result1 = await square(a)
+#     logger.info(f"Square result: {result1}")
+#     result2 = await square(b)
+#     logger.info(f"Square result: {result2}")
 
-    return result1 + result2
+#     return result1 + result2
 
-@task
-async def exit_early() -> int:
-    sys.exit(0)
-
-
-@task(
-    name="custom_add",
-    options=Options(retry=Retry(max_retries=3, wait_duration_ms=1000)),
-)
-def add_numbers(a: int, b: int) -> int:
-    """Add two numbers with retry configuration."""
-    logger.info(f"Adding {a} + {b}")
-    return a + b
-
-@task
-def log(a: str):
-    print(a)
+# @task
+# async def exit_early() -> int:
+#     sys.exit(0)
 
 
-@task
-def greet(name: str) -> str:
-    """Greet someone."""
-    logger.info(f"Greeting {name}")
-    return f"Hello 7, {name}!"
+# @task(
+#     name="custom_add",
+#     options=Options(retry=Retry(max_retries=3, wait_duration_ms=1000)),
+# )
+# def add_numbers(a: int, b: int) -> int:
+#     """Add two numbers with retry configuration."""
+#     logger.info(f"Adding {a} + {b}")
+#     return a + b
+
+# @task
+# def log(a: str):
+#     print(a)
 
 
-@task
-async def fan_out(n: int) -> list[int]:
-    """Fan out a number into a list of numbers."""
-    squares = [square(i) for i in range(n)]
-    results = await asyncio.gather(*squares)
-    return results
+# @task
+# def greet(name: str) -> str:
+#     """Greet someone."""
+#     logger.info(f"Greeting {name}")
+#     return f"Hello 7, {name}!"
 
-@task
-async def sleep(seconds: int) -> None:
-    """Sleep for a number of seconds."""
-    logger.info(f"Sleeping for {seconds} seconds")
-    await asyncio.sleep(seconds)
-    return seconds
 
-@task
-async def test_fail_parent_task() -> None:
-    """start subtasks then fail"""
-    await square(4)
+# @task
+# async def fan_out(n: int) -> list[int]:
+#     """Fan out a number into a list of numbers."""
+#     squares = [square(i) for i in range(n)]
+#     results = await asyncio.gather(*squares)
+#     return results
 
-    sleep(10)
-    sleep(20)
+# @task
+# async def sleep(seconds: int) -> None:
+#     """Sleep for a number of seconds."""
+#     logger.info(f"Sleeping for {seconds} seconds")
+#     await asyncio.sleep(seconds)
+#     return seconds
 
-    await asyncio.sleep(5)
+# @task
+# async def test_fail_parent_task() -> None:
+#     """start subtasks then fail"""
+#     await square(4)
 
-    raise Exception("Test failure")
+#     sleep(10)
+#     sleep(20)
+
+#     await asyncio.sleep(5)
+
+#     raise Exception("Test failure")
 
 if __name__ == "__main__":
     try:
