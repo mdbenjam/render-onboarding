@@ -85,6 +85,15 @@ async def test_fail_parent_task() -> None:
 
     raise Exception("Test failure")
 
+@task(plan="pro")
+async def big_square(a: int) -> int:
+    return await square(a)
+
+@task
+async def big_task_fan_out(n: int) -> None:
+    results = await fan_out(n)
+    logger.info(f"Fan out results: {results}")
+
 if __name__ == "__main__":
     try:
         start()
