@@ -4,6 +4,7 @@ import asyncio
 import logging
 import sys
 import time
+from render_sdk import Workflows
 
 from render_sdk.workflows import Options, Retry, start, task
 
@@ -12,15 +13,17 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+app = Workflows.from_workflows(math_app, text_app) 
 
-@task
+
+@app.task
 def square(a: int) -> int:
     """Square a number."""
     logger.info(f"Computing square of {a}")
     return a * a
 
 
-@task
+@app.task
 async def add_squares(a: int, b: int) -> int:
     """Add the squares of two numbers."""
     logger.info(f"Computing add_squares: {a}, {b}")
@@ -33,12 +36,12 @@ async def add_squares(a: int, b: int) -> int:
 
     return result1 + result2
 
-@task
+@app.task
 async def exit_early() -> int:
     sys.exit(0)
 
 
-@task(
+@app.task(
     name="custom_add",
     options=Options(retry=Retry(max_retries=3, wait_duration_ms=1000)),
 )
@@ -47,33 +50,33 @@ def add_numbers(a: int, b: int) -> int:
     logger.info(f"Adding {a} + {b}")
     return a + b
 
-@task
+@app.task
 def log(a: str):
     print(a)
 
 
-@task
+@app.task
 def greet(name: str) -> str:
     """Greet someone."""
     logger.info(f"Greeting {name}")
     return f"Hello 7, {name}!"
 
 
-@task
+@app.task
 async def fan_out(n: int) -> list[int]:
     """Fan out a number into a list of numbers."""
     squares = [square(i) for i in range(n)]
     results = await asyncio.gather(*squares)
     return results
 
-@task
+@app.task
 async def sleep(seconds: int) -> None:
     """Sleep for a number of seconds."""
     logger.info(f"Sleeping for {seconds} seconds")
     await asyncio.sleep(seconds)
     return seconds
 
-@task
+@app.task
 async def test_fail_parent_task() -> None:
     """start subtasks then fail"""
     await square(4)
@@ -85,11 +88,11 @@ async def test_fail_parent_task() -> None:
 
     raise Exception("Test failure")
 
-@task(plan="pro")
+@app.task(plan="pro")
 async def big_square(a: int) -> int:
     return await square(a)
 
-@task
+@app.task
 async def big_task_fan_out(n: int) -> None:
     results = await fan_out(n)
     logger.info(f"Fan out results: {results}")
