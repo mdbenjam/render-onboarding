@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-app = Workflows.from_workflows(math_app, text_app) 
+app = Workflows()
 
 
 @app.task
