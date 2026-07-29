@@ -90,7 +90,7 @@ async def test_fail_parent_task() -> None:
 
 @app.task(plan="pro")
 async def big_square(a: int) -> int:
-    return await square(a)
+    return a * a
 
 @app.task
 async def big_task_fan_out(n: int) -> None:
