@@ -94,8 +94,9 @@ async def big_square(a: int) -> int:
 
 @app.task
 async def big_task_fan_out(n: int) -> None:
-    results = await fan_out(n)
-    logger.info(f"Fan out results: {results}")
+    squares = [big_square(i) for i in range(n)]
+    results = await asyncio.gather(*squares)
+    return results
 
 if __name__ == "__main__":
     try:
