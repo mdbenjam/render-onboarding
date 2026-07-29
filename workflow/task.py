@@ -43,7 +43,7 @@ async def exit_early() -> int:
 
 @app.task(
     name="custom_add",
-    options=Options(retry=Retry(max_retries=3, wait_duration_ms=1000)),
+    retry=Retry(max_retries=3, wait_duration_ms=1000),
 )
 def add_numbers(a: int, b: int) -> int:
     """Add two numbers with retry configuration."""
