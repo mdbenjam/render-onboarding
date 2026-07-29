@@ -6,7 +6,7 @@ import sys
 import time
 from render_sdk import Workflows
 
-from render_sdk.workflows import Options, Retry, start, task
+from render_sdk.workflows import Retry
 
 # Configure logging
 logging.basicConfig(level=logging.WARNING)
@@ -99,7 +99,7 @@ async def big_task_fan_out(n: int) -> None:
 
 if __name__ == "__main__":
     try:
-        start()
+        app.start()
     except Exception as e:
         logger.error(f"Error starting Render Tasks example: {e}")
         raise
