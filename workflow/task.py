@@ -88,7 +88,7 @@ async def test_fail_parent_task() -> None:
 
     raise Exception("Test failure")
 
-@app.task(plan="pro")
+@app.task(plan="pro_ultra")
 async def big_square(a: int) -> int:
     return a * a
 
