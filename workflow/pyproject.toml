@@ -1,0 +1,16 @@
+[project]
+name = "workflow"
+version = "0.1.0"
+description = "Example usage of the Render Tasks Python SDK"
+requires-python = ">=3.12"
+dependencies = [
+    "render-sdk",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.13.3",
+]
+
+[tool.uv.sources]
+render-sdk = { git = "ssh://git@github.com/renderinc/sdk", rev = "b6417c44693abf412701c41b92f7f3c69666ed51", subdirectory = "python" }
