@@ -498,13 +498,26 @@ wheels = [
 [[package]]
 name = "render-sdk"
 version = "0.7.0"
-source = { git = "ssh://git@github.com/renderinc/sdk?subdirectory=python&rev=b6417c44693abf412701c41b92f7f3c69666ed51#b6417c44693abf412701c41b92f7f3c69666ed51" }
+source = { path = "render_sdk-0.7.0-py3-none-any.whl" }
 dependencies = [
     { name = "aiohttp" },
     { name = "attrs" },
     { name = "httpx" },
     { name = "python-dateutil" },
 ]
+wheels = [
+    { filename = "render_sdk-0.7.0-py3-none-any.whl", hash = "sha256:4f9aed508d3f5e6cf09ee2f4f010a6d7a3b050763b44b5198ccfec07425d3856" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "aiohttp", specifier = ">=3.12.14,<4" },
+    { name = "attrs", specifier = ">=23.2.0" },
+    { name = "httpx", specifier = ">=0.28.1,<0.29" },
+    { name = "python-dateutil", specifier = ">=2.8.2,<3" },
+    { name = "redis", marker = "extra == 'key-value'", specifier = ">=4.2.0" },
+]
+provides-extras = ["key-value"]
 
 [[package]]
 name = "ruff"
@@ -563,7 +576,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "render-sdk", git = "ssh://git@github.com/renderinc/sdk?subdirectory=python&rev=b6417c44693abf412701c41b92f7f3c69666ed51" }]
+requires-dist = [{ name = "render-sdk", path = "render_sdk-0.7.0-py3-none-any.whl" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff", specifier = ">=0.13.3" }]

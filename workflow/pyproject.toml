@@ -13,4 +13,4 @@ dev = [
 ]
 
 [tool.uv.sources]
-render-sdk = { git = "ssh://git@github.com/renderinc/sdk", rev = "b6417c44693abf412701c41b92f7f3c69666ed51", subdirectory = "python" }
+render-sdk = { path = "render_sdk-0.7.0-py3-none-any.whl" }
